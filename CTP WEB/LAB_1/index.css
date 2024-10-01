@@ -1,0 +1,35 @@
+#mainmenu{
+    display: flex;
+    justify-content: left;
+}
+
+
+
+#mainmenu_pic{
+    width: 150pt;
+    height: 150pt;
+    background-color: gray;
+    border-radius: 5pt;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#mainmenu_img{
+    
+    border-radius: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+#mainmenu_list{
+    width: 400pt;
+    height: 150pt;
+    background-color: gold;
+    border-radius: 5pt;
+
+    display: flex;
+    align-items: center;
+}
