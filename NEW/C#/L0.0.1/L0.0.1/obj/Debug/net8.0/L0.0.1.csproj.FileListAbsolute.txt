@@ -1,0 +1,15 @@
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\bin\Debug\net8.0\L0.0.1.exe
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\bin\Debug\net8.0\L0.0.1.deps.json
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\bin\Debug\net8.0\L0.0.1.runtimeconfig.json
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\bin\Debug\net8.0\L0.0.1.dll
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\bin\Debug\net8.0\L0.0.1.pdb
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.GeneratedMSBuildEditorConfig.editorconfig
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.AssemblyInfoInputs.cache
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.AssemblyInfo.cs
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.csproj.CoreCompileInputs.cache
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.sourcelink.json
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.dll
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\refint\L0.0.1.dll
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.pdb
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\L0.0.1.genruntimeconfig.cache
+D:\study_git\NEW\C#\L0.0.1\L0.0.1\obj\Debug\net8.0\ref\L0.0.1.dll
