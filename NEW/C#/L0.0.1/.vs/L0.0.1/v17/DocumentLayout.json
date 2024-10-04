@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\study_git\\NEW\\C#\\L0.0.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\study_git\\NEW\\C#\\L0.0.1\\L0.0.1\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:L0.0.1\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\study_git\\NEW\\C#\\L0.0.1\\L0.0.1\\L0.0.1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:L0.0.1\\L0.0.1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{12284CE2-8D62-40A4-881A-D65933D0ED11}|L0.0.1\\L0.0.1.csproj|d:\\study_git\\new\\c#\\l0.0.1\\l0.0.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12284CE2-8D62-40A4-881A-D65933D0ED11}|L0.0.1\\L0.0.1.csproj|solutionrelative:l0.0.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,20 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "L0.0.1.csproj",
-              "DocumentMoniker": "D:\\study_git\\NEW\\C#\\L0.0.1\\L0.0.1\\L0.0.1.csproj",
-              "RelativeDocumentMoniker": "L0.0.1\\L0.0.1.csproj",
-              "ToolTip": "D:\\study_git\\NEW\\C#\\L0.0.1\\L0.0.1\\L0.0.1.csproj",
-              "RelativeToolTip": "L0.0.1\\L0.0.1.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-02T08:39:02.321Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -40,7 +24,7 @@
               "RelativeDocumentMoniker": "L0.0.1\\Program.cs",
               "ToolTip": "D:\\study_git\\NEW\\C#\\L0.0.1\\L0.0.1\\Program.cs",
               "RelativeToolTip": "L0.0.1\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-02T08:08:15.205Z",
               "EditorCaption": ""
