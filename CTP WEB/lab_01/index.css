@@ -1,0 +1,52 @@
+#main {
+  background-color: rgba(68, 73, 71, 0.979);
+  width: 500px;
+  height: 100px;
+
+  margin-top: 20px;
+  margin-left: 12px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  width: 33%;
+  height: auto;
+
+  color: gold;
+}
+
+#img_container {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  border-radius: 10%;
+}
+
+dl {
+  font-size: 18px;
+}
+
+dd {
+  display: none;
+  background-color: aquamarine;
+}
+
+dl:hover dd {
+  display: block;
+
+  font-size: 18px;
+}
+
+.list_1 {
+  background-color: blue;
+  color: red;
+}
+
+.list_2 {
+  background-color: olive;
+  color: aqua;
+}
