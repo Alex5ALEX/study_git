@@ -1,15 +1,31 @@
 ﻿
 
-static int sum(int a,int b, out int temp)
+namespace test;
+
+
+class Program
 {
-    temp =  a + b;
-    return temp;
+    static void Main(string[] args)
+    {
+        int a = 0;
+        var Joe = new Person();
+        Joe.name = "Joe";
+        Joe.age = 18;
+        Joe.print();
+
+    }
 }
 
 
-int temp = 0;
-
-sum(10, 12,out temp);
 
 
-Console.WriteLine(temp);
+class Person
+{
+    public int age;
+    public string name;
+
+    public void print()
+    {
+        Console.WriteLine($"Name : {name}, age : {age}");
+    }
+}
