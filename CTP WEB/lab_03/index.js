@@ -12,7 +12,7 @@ function exercise_1(){
     alert(num);
 }
 
-//exercise_1();
+exercise_1();
 
 
 
@@ -28,9 +28,10 @@ function exercise_2(){
 
     var list_out = "";
     var num_out = 0;
+
     for(let i=0; i < list.length ;i++){
         list_out += list[i] + "  ";
-        num_out += Math.sqrt(list[i]);
+        num_out += Math.sqrt(parseFloat(list[i]));
     }
 
     alert(list_out);
