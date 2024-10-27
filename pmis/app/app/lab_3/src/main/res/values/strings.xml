@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lab_3</string>
+    <string name="red_button">Red</string>
+    <string name="green_button">Green</string>
+    <string name="blue_button">Blue</string>
+    <string name="message_button">Message</string>
+    <string name="text">Main_text</string>
+    <string name="push_text">Push_text</string>
+</resources>
