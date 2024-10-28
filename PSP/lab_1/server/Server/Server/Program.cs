@@ -12,12 +12,13 @@ class Server
         listener.Start();
         Console.WriteLine("Сервер запущен. Ожидание соединений...");
 
+        // Принимаем входящее соединение
+        TcpClient client = listener.AcceptTcpClient();
+        Console.WriteLine("Клиент подключен.");
+
         while (true)
         {
-            // Принимаем входящее соединение
-            TcpClient client = listener.AcceptTcpClient();
-            Console.WriteLine("Клиент подключен.");
-
+            
             // Получаем поток для чтения и записи
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[256];
@@ -30,8 +31,9 @@ class Server
             byte[] responseData = Encoding.UTF8.GetBytes(response);
             stream.Write(responseData, 0, responseData.Length);
 
-            // Закрываем соединение
-            client.Close();
+
         }
+
+        client.Close();
     }
 }

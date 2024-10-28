@@ -13,7 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,12 @@ public class MainActivity extends AppCompatActivity {
         btn_blue.setText(getResources().getText(R.string.blue_button));
         btn_message.setText(getResources().getText(R.string.message_button));
 
+        btn_red.setOnClickListener(this);
+        btn_green.setOnClickListener(this);
+        btn_blue.setOnClickListener(this);
+        btn_message.setOnClickListener(this);
 
-
+        /*
         btn_red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +79,23 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, getResources().getText(R.string.push_text), Toast.LENGTH_SHORT).show();
             }
         });
+        */
 
+    }
+
+
+    @Override
+    public void onClick(View v){
+        TextView text = (TextView)findViewById(R.id.textView);
+
+        if(v.getId() == R.id.button1){
+            text.setTextColor(getResources().getColor(R.color.red));
+        }else if(v.getId() == R.id.button2){
+            text.setTextColor(getResources().getColor(R.color.green));
+        }else if(v.getId() == R.id.button3){
+            text.setTextColor(getResources().getColor(R.color.blue));
+        }else if(v.getId() == R.id.button4){
+            Toast.makeText(MainActivity.this, getResources().getText(R.string.push_text), Toast.LENGTH_SHORT).show();
+        }
     }
 }
