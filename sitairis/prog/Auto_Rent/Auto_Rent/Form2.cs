@@ -23,6 +23,11 @@ namespace Auto_Rent
 
 
             button1.Click += exitButton;
+            button2.Click += clientPanel;
+            button3.Click += orderPanel;
+            button4.Click += autoPanel;
+            button5.Click += providerPanel;
+            button6.Click += employeePanel;
 
         }
 
@@ -31,14 +36,38 @@ namespace Auto_Rent
 
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        private void exitButton(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void clientPanel(object sender, EventArgs e)
+        {
+
+        }
+        private void orderPanel(object sender, EventArgs e)
         {
 
         }
 
-        private void exitButton(object sender, EventArgs e)
+        private void autoPanel(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void providerPanel(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeePanel(object sendet, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

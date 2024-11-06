@@ -5,21 +5,12 @@ namespace Auto_Rent
 
     public partial class Form1 : Form
     {
-        private PersonStatus personStatus { get; set; }
+        
 
 
 
         public Form1()
         {
-            this.Close();
-        }
-
-        public Form1(PersonStatus personStatus)
-        {
-            this.personStatus = personStatus;
-
-
-
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
@@ -40,14 +31,14 @@ namespace Auto_Rent
         //проверка на наличие клиента/админа в бд
         private void enterance(object sender, EventArgs e)
         {
-            personStatus = PersonStatus.Admin;
+            
             this.Close();
         }
 
 
         private void registration(object sender, EventArgs e)
         {
-            personStatus = PersonStatus.Admin;
+    
             this.Close();
         }
 
