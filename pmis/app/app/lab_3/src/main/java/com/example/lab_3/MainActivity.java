@@ -1,13 +1,19 @@
 package com.example.lab_3;
 
-import android.graphics.Color;
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -39,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_red.setBackgroundColor(getResources().getColor(R.color.red));
         btn_green.setBackgroundColor(getResources().getColor(R.color.green));
         btn_blue.setBackgroundColor(getResources().getColor(R.color.blue));
-        btn_message.setBackgroundColor(getResources().getColor(R.color.black));
+        btn_message.setBackgroundColor(getResources().getColor(R.color.white));
 
         btn_red.setText(getResources().getText(R.string.red_button));
         btn_green.setText(getResources().getText(R.string.green_button));
@@ -56,20 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 text.setTextColor(getResources().getColor(R.color.red));
-            }
-        });
-
-        btn_green.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.setTextColor(getResources().getColor(R.color.green));
-            }
-        });
-
-        btn_blue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.setTextColor(getResources().getColor(R.color.blue));
             }
         });
 
@@ -98,4 +90,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, getResources().getText(R.string.push_text), Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+//    @Override
+//    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+//        super.onCreateContextMenu(menu, v, menuInfo);
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_main, menu);
+//    }
+
+//    @Override
+//    public boolean onContextItemSelected(@NonNull MenuItem item) {
+//        if (item.getItemId() == R.id.help) {
+//            Intent intent = new Intent(this, AboutActivity.class);
+//            startActivity(intent);
+//            return true;
+//        } else if (item.getItemId() == R.id.no_help) {
+//            Toast.makeText(this, "Помощь не нужна", Toast.LENGTH_SHORT).show();
+//            return true;
+//        } else {
+//            return super.onContextItemSelected(item);
+//        }
+//    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.Program) {
+            Toast.makeText(this, "You have clicked on About Program", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(this, AuthorActivity.class);
+//            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.Author) {
+            Toast.makeText(this, "You have clicked on About Author", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(this, AboutActivity.class);
+//            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.Results) {
+            Toast.makeText(this, "You have clicked on Results", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(this, ResultsActivity.class);
+//            TextView txtview = findViewById(R.id.TextView1);
+//            intent.putExtra("textKey", txtview.getText().toString());
+//            startActivity(intent);
+            return true;
+
+        } else if (item.getItemId() == R.id.Exit) {
+            finish();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+
 }
