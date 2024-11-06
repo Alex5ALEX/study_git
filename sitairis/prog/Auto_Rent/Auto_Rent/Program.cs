@@ -1,48 +1,56 @@
-namespace Auto_Rent
+namespace Auto_Rent;
+
+
+
+internal static class Program
 {
 
-
-    public enum PersonStatus
+    static void Main(string[] args)
     {
-        Uncnown,
-        Client,
-        Admin
-    }
+        // To customize application configuration such as set high DPI settings or default font,
+        // see https://aka.ms/applicationconfiguration.
 
 
 
 
-    internal static class Program
-    {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        //ПОДКЛЮЧЕНИЕ БД
+        //var connectionString = "server=localhost;port=3306;database=AutoRent;user id=root;password=BuildSQLData;";
+
+        //var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+
+        //optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+
+        using (var context = new ApplicationDbContext())
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Используйте контекст для работы с базой данных
 
-
-            PersonStatus status = PersonStatus.Uncnown;
 
 
             ApplicationConfiguration.Initialize();
 
-            Form form = new Form1(status);
-
-            Application.Run(form);
-
-            if(status == PersonStatus.Admin)
-            {
-                Form form1 = new Form2();
-                Application.Run(form1);
-            }
+            //Форма для регистрации/авторизации
+            //Form form = new Form1();
+            //Application.Run(form);
 
 
 
+            Form form1 = new Form2();
+            Application.Run(form1);
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
