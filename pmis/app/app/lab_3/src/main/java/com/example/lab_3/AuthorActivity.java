@@ -60,7 +60,9 @@ public class AuthorActivity extends AppCompatActivity {
             finishAffinity();
             return true;
         } else if (item.getItemId() == 3) {
-            Toast.makeText(AuthorActivity.this, "SECRET", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(AuthorActivity.this, "SECRET", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SecretActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

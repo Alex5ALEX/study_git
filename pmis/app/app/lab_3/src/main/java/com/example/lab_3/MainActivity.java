@@ -1,6 +1,5 @@
 package com.example.lab_3;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -21,6 +20,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    int color;
+    TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return insets;
         });
 
-        TextView text = (TextView)findViewById(R.id.textView);
+        color = getResources().getColor(R.color.grey);
+
+        text = (TextView)findViewById(R.id.textView);
         text.setText(getResources().getText(R.string.text));
 
         registerForContextMenu(text);
@@ -75,21 +79,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text = (TextView)findViewById(R.id.textView);
 
         if(v.getId() == R.id.button1){
-            text.setTextColor(getResources().getColor(R.color.red));
-        }else if(v.getId() == R.id.button2){
-            text.setTextColor(getResources().getColor(R.color.green));
-        }else if(v.getId() == R.id.button3){
-            text.setTextColor(getResources().getColor(R.color.blue));
-        }else if(v.getId() == R.id.button4){
+            color = getResources().getColor(R.color.red);
+            text.setTextColor(color);
+        }
+        else if(v.getId() == R.id.button2){
+            color = getResources().getColor(R.color.green);
+            text.setTextColor(color);
+        }
+        else if(v.getId() == R.id.button3){
+            color = getResources().getColor(R.color.blue);
+            text.setTextColor(color);
+        }
+        else if(v.getId() == R.id.button4){
             Toast.makeText(MainActivity.this, getResources().getText(R.string.push_text), Toast.LENGTH_SHORT).show();
         }
     }
+
+    //
+    //сохранение состаяния при повороте экрана
+    //
+
+    //@Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Save the current text color as an integer
+        int colortemp = text.getCurrentTextColor();
+        outState.putInt("textKey", colortemp);
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore the text color
+        int savedColor = savedInstanceState.getInt("textKey");
+        text.setTextColor(savedColor);
+    }
+
 
 
     //
     //выпадающее меню
     //
-
+    //onprepareinstance
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -114,8 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (item.getItemId() == R.id.Results) {
             //Toast.makeText(this, "You have clicked on Results", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ResultActivity.class);
-//            TextView txtview = findViewById(R.id.TextView1);
-//            intent.putExtra("textKey", txtview.getText().toString());
+            intent.putExtra("color",color);
             startActivity(intent);
             return true;
 
