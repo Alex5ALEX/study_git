@@ -6,42 +6,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class ProgramActivity extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
 
     @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.program_activity);
+        setContentView(R.layout.result_actitivity);
 
-        /*
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.program_activity);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });*/
     }
 
-//    @Override
+
+    //    @Override
     public boolean onCreateOptionsMenu(Menu menu2) {
         menu2.add(0, 1, 0, "Back");
         menu2.add(0, 2, 0, "Exit");
         return super.onCreateOptionsMenu(menu2);
     }
 
-//    @Override
+    //    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == 1) {
             Intent intent = new Intent(this, MainActivity.class);
@@ -53,9 +41,4 @@ public class ProgramActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
 }

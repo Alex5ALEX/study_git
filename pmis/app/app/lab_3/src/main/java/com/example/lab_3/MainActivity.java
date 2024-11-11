@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text = (TextView)findViewById(R.id.textView);
         text.setText(getResources().getText(R.string.text));
 
+        registerForContextMenu(text);
 
 
         Button btn_red = (Button)findViewById(R.id.button1);
@@ -64,13 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 text.setTextColor(getResources().getColor(R.color.red));
             }
         });
-
-        btn_message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, getResources().getText(R.string.push_text), Toast.LENGTH_SHORT).show();
-            }
-        });
         */
 
     }
@@ -92,52 +86,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    //
+    //выпадающее меню
+    //
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-//    @Override
-//    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//        super.onCreateContextMenu(menu, v, menuInfo);
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_main, menu);
-//    }
-
-//    @Override
-//    public boolean onContextItemSelected(@NonNull MenuItem item) {
-//        if (item.getItemId() == R.id.help) {
-//            Intent intent = new Intent(this, AboutActivity.class);
-//            startActivity(intent);
-//            return true;
-//        } else if (item.getItemId() == R.id.no_help) {
-//            Toast.makeText(this, "Помощь не нужна", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            return super.onContextItemSelected(item);
-//        }
-//    }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.Program) {
-            Toast.makeText(this, "You have clicked on About Program", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(this, AuthorActivity.class);
-//            startActivity(intent);
+            //Toast.makeText(this, "You have clicked on About Program", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, ProgramActivity.class);
+            startActivity(intent);
             return true;
+
         } else if (item.getItemId() == R.id.Author) {
-            Toast.makeText(this, "You have clicked on About Author", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(this, AboutActivity.class);
-//            startActivity(intent);
+            //Toast.makeText(this, "You have clicked on About Author", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, AuthorActivity.class);
+            startActivity(intent);
             return true;
+
         } else if (item.getItemId() == R.id.Results) {
-            Toast.makeText(this, "You have clicked on Results", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(this, ResultsActivity.class);
+            //Toast.makeText(this, "You have clicked on Results", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, ResultActivity.class);
 //            TextView txtview = findViewById(R.id.TextView1);
 //            intent.putExtra("textKey", txtview.getText().toString());
-//            startActivity(intent);
+            startActivity(intent);
             return true;
 
         } else if (item.getItemId() == R.id.Exit) {
@@ -145,6 +124,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         } else {
             return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //
+    //контекстное меню
+    //
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.help) {
+            Intent intent = new Intent(this, ProgramActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.no_help) {
+            Toast.makeText(this, "Помощь не нужна", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return super.onContextItemSelected(item);
         }
     }
 
