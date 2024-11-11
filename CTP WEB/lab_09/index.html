@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивные элементы</title>
+    <style>
+        .hover-text {
+            font-size: 124pt; /* Исходный размер шрифта */
+            color: black; /* Исходный цвет шрифта */
+            background-color: white; /* Исходный цвет фона */
+            transition: all 0.3s; /* Плавный переход для изменений */
+        }
+
+        .hover-text:hover {
+            font-size: 108pt; /* Уменьшение шрифта на 16pt */
+            color: red; /* Цвет шрифта: красный */
+            background-color: lightblue; /* Цвет фона: голубой */
+        }
+
+        .image-container {
+            text-align: center; /* Центрирование изображения и подписи */
+            margin-top: 20px;
+        }
+
+        .caption {
+            color: black; /* Исходный цвет подписи */
+            cursor: pointer; /* Указатель на курсор при наведении на подпись */
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="hover-text">строка</h1>
+
+<div class="image-container">
+    <img src="images/img_1.png" alt="Пример изображения" id="myImage">
+    <div class="caption" id="caption" onclick="changeCaption()">Это подпись</div>
+</div>
+
+<script>
+    function changeCaption() {
+        const caption = document.getElementById('caption');
+        const image = document.getElementById('myImage');
+
+        // Меняем текст подписи и цвет шрифта
+        if (caption.textContent === "Это подпись") {
+            caption.textContent = "Подпись изменена!";
+            caption.style.color = "yellow"; // Цвет подписи: желтый
+            image.style.border = "2px solid yellow"; // Добавляем границу к изображению
+        } else {
+            caption.textContent = "Это подпись";
+            caption.style.color = "black"; // Возвращаем исходный цвет подписи
+            image.style.border = "none"; // Убираем границу
+        }
+    }
+</script>
+
+</body>
+</html>

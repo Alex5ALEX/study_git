@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подсвечивание текста с jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .highlight {
+            background-color: yellow; /* Цвет подсветки */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Подсвечивание текста с помощью jQuery</h1>
+<p id="text">Наведи курсор на этот текст, чтобы подсветить его.</p>
+
+<script>
+    $(document).ready(function() {
+        // Обработчик события наведения курсора
+        $('#text').hover(
+            function() {
+                $(this).addClass('highlight'); // Добавляем класс для подсветки
+            },
+            function() {
+                $(this).removeClass('highlight'); // Убираем класс подсветки
+            }
+        );
+    });
+</script>
+
+</body>
+</html>

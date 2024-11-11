@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графические элементы</title>
+    <style>
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .image {
+            width: 200px; /* Исходная ширина изображения */
+            transition: transform 0.3s; /* Плавный переход для трансформации */
+        }
+
+        .image:hover {
+            transform: scale(0.5); /* Уменьшение изображения на 50% при наведении */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Графические элементы</h1>
+<div class="image-container">
+    <img src="images/img_1.png" alt="Изображение 1" class="image" onclick="swapImages(0)">
+    <img src="images/img_2.png" alt="Изображение 2" class="image" onclick="swapImages(1)">
+    <img src="images/img_3.png" alt="Изображение 3" class="image" onclick="swapImages(2)">
+    <img src="images/img_4.png" alt="Изображение 4" class="image" onclick="swapImages(3)">
+</div>
+
+<script>
+    let images = document.querySelectorAll('.image');
+
+    function swapImages(index) {
+        // Сохраняем текущее изображение в переменной
+        let currentImage = images[index];
+
+        // Определяем индекс следующего изображения
+        let nextIndex = (index + 1) % images.length;
+
+        // Меняем местами изображения
+        let tempSrc = currentImage.src;
+        currentImage.src = images[nextIndex].src;
+        images[nextIndex].src = tempSrc;
+    }
+</script>
+
+</body>
+</html>
