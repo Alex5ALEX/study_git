@@ -26,12 +26,6 @@ public class EmployeeEntity
     public string Email { get; set; } = string.Empty;
 
 
-    //enterance in program
-    public string Login { get; set; } = string.Empty;
-
-    public string Password { get; set; } = string.Empty;
-
-
     //links
     public List<OrderEntity> Orders { get; set; } = [];
 

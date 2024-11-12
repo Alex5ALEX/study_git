@@ -15,22 +15,107 @@ namespace Auto_Rent;
 
 internal class AutoLayout : UserControl
 {
+
+    ApplicationDbContext _context;
+
     public AutoLayout()
     {
         InitializeComponent();
 
+        InitializeDataGridView();
 
+    }
+
+
+
+    private void InitializeDataGridView()
+    {
+        _context = new ApplicationDbContext();
+
+        var _auto = new BindingList<AutoEntity>(_context.Auto.ToList());
+        dataGridView1.DataSource = _auto;
+
+        /*
+        // Настройка DataGridView
+        dataGridView1.Columns.Add("Id", "ID");
+        dataGridView1.Columns.Add("Brand", "Бренд");
+        dataGridView1.Columns.Add("Model", "Модель");
+        dataGridView1.Columns.Add("Price", "Цена");
+        dataGridView1.Columns.Add("Coast", "Стоимость");
+        dataGridView1.Columns.Add("Condition", "Состояние");
+        dataGridView1.Columns.Add("Year", "Год");
+        dataGridView1.Columns.Add("Id_Provider", "ID Поставщика");
+
+        // Заполнение данными
+        LoadData();*/    
+
+
+
+        // Подписка на события
+        dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+        dataGridView1.RowValidated += DataGridView1_RowValidated;
+    }
+
+    private void DataGridView1_RowValidated(object? sender, DataGridViewCellEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void LoadData()
+    {
+        /*
         using (var context = new ApplicationDbContext())
         {
             var Auto = context.Auto.ToList();
-            dataGridView1.DataSource = Auto;
-        }
 
+            foreach (var item in Auto) {
+                
+                dataGridView1.Rows.Add(
+                    item.Id,
+                    item.Brand,
+                    item.Model,
+                    item.Price,
+                    item.Coast,
+                    item.Condition,
+                    item.Year,
+                    item.Id_Provider);
 
+            }
 
+            
+            dataGridView1.ReadOnly = false;
 
+        }*/
+        
 
     }
+
+
+    private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    {
+        // Если ячейка изменена, сохраняем изменения
+        SaveChanges();
+    }
+
+    private void DataGridView1_RowValidated(object sender, DataGridViewCellCancelEventArgs e)
+    {
+        // Сохраняем изменения при завершении редактирования строки
+        SaveChanges();
+    }
+
+    private void SaveChanges()
+    {
+        // Сохранение изменений в базе данных
+        _context.SaveChanges();
+    }
+
+
+
+
+
+
+
+
 
     private void InitializeComponent()
     {
