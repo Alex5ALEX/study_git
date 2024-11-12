@@ -22,17 +22,14 @@ namespace Auto_Rent
             this.StartPosition = FormStartPosition.CenterScreen;
 
 
-            button1.Click += exitButton;
-            button2.Click += clientPanel;
-            button3.Click += orderPanel;
-            button4.Click += autoPanel;
-            button5.Click += providerPanel;
-            button6.Click += employeePanel;
+            buttonExit.Click += exitButton;
 
-        }
+            buttonClient.Click += clientPanel;
+            buttonOrder.Click += orderPanel;
+            buttonAuto.Click += autoPanel;
+            buttonProvider.Click += providerPanel;
+            buttonEmployee.Click += employeePanel;
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -41,34 +38,41 @@ namespace Auto_Rent
             this.Close();
         }
 
+
+
         private void clientPanel(object sender, EventArgs e)
         {
-
+            return;
         }
         private void orderPanel(object sender, EventArgs e)
         {
-
+            return;
         }
 
         private void autoPanel(object sender, EventArgs e)
         {
+            // Удалите текущий Layout
+            //this.Controls.Clear();
 
+            // Добавьте новый Layout
+            var newLayout = new AutoLayout();
+            newLayout.Dock = DockStyle.Fill; // Для адаптивности
+            groupBox2.Controls.Add(newLayout);
+            //this.Controls.Add(newLayout);
+            return;
         }
 
         private void providerPanel(object sender, EventArgs e)
         {
-
+            return;
         }
 
         private void employeePanel(object sendet, EventArgs e)
         {
-
+            return;
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
     }
 }

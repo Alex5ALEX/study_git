@@ -1,7 +1,7 @@
 ﻿using Auto_Rent.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auto_Rent;
+namespace Auto_Rent.Data;
 
 
 public class ApplicationDbContext : DbContext
