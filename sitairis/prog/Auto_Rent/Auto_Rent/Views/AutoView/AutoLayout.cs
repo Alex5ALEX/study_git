@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Auto_Rent;
+namespace Auto_Rent.Views.AutoView;
 
 internal class AutoLayout : UserControl
 {
@@ -47,7 +47,7 @@ internal class AutoLayout : UserControl
         dataGridView1.Columns.Add("Id_Provider", "ID Поставщика");
 
         // Заполнение данными
-        LoadData();*/    
+        LoadData();*/
 
 
 
@@ -86,7 +86,7 @@ internal class AutoLayout : UserControl
             dataGridView1.ReadOnly = false;
 
         }*/
-        
+
 
     }
 

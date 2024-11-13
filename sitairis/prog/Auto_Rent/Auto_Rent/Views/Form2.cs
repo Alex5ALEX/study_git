@@ -8,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Auto_Rent.Views.AutoView;
+using Auto_Rent.Views.ClientView;
+using Auto_Rent.Views.EmployeeView;
+using Auto_Rent.Views.OrderView;
+using Auto_Rent.Views.ProviderView;
+
+
 namespace Auto_Rent
 {
     public partial class Form2 : Form
@@ -42,36 +49,60 @@ namespace Auto_Rent
 
         private void clientPanel(object sender, EventArgs e)
         {
+            groupBox2.Controls.Clear();
+
+            var newLayout = new ClientLayout();
+
+            groupBox2.Controls.Add(newLayout);
+
             return;
         }
+
         private void orderPanel(object sender, EventArgs e)
         {
+            groupBox2.Controls.Clear();
+
+            var newLayout = new OrderLayout(); 
+
+            groupBox2.Controls.Add(newLayout);
+
             return;
         }
 
         private void autoPanel(object sender, EventArgs e)
         {
-            // Удалите текущий Layout
-            //this.Controls.Clear();
+            groupBox2.Controls.Clear();
 
-            // Добавьте новый Layout
             var newLayout = new AutoLayout();
-            newLayout.Dock = DockStyle.Fill; // Для адаптивности
+
             groupBox2.Controls.Add(newLayout);
-            //this.Controls.Add(newLayout);
+            
             return;
         }
 
         private void providerPanel(object sender, EventArgs e)
         {
+            groupBox2.Controls.Clear();
+
+            var newLayout = new ProviderLayout();
+
+            groupBox2.Controls.Add(newLayout);
+
             return;
         }
 
-        private void employeePanel(object sendet, EventArgs e)
+        private void employeePanel(object sender, EventArgs e)
         {
+            groupBox2.Controls.Clear();
+
+            var newLayout = new EmployeeLayout();
+
+            groupBox2.Controls.Add(newLayout);
+
             return;
         }
 
+        
 
 
     }
