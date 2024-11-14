@@ -1,4 +1,5 @@
 using Auto_Rent.Data;
+using Auto_Rent.Views;
 
 
 namespace Auto_Rent;
@@ -37,8 +38,8 @@ internal static class Program
 
 
 
-            Form form1 = new Form2();
-            Application.Run(form1);
+            Form form = new MainForm();
+            Application.Run(form);
 
 
         }

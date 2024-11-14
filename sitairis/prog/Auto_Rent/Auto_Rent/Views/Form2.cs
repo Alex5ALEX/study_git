@@ -29,13 +29,9 @@ namespace Auto_Rent
             this.StartPosition = FormStartPosition.CenterScreen;
 
 
-            buttonExit.Click += exitButton;
+            
 
-            buttonClient.Click += clientPanel;
-            buttonOrder.Click += orderPanel;
-            buttonAuto.Click += autoPanel;
-            buttonProvider.Click += providerPanel;
-            buttonEmployee.Click += employeePanel;
+
 
 
         }
@@ -47,62 +43,6 @@ namespace Auto_Rent
 
 
 
-        private void clientPanel(object sender, EventArgs e)
-        {
-            groupBox2.Controls.Clear();
-
-            var newLayout = new ClientLayout();
-
-            groupBox2.Controls.Add(newLayout);
-
-            return;
-        }
-
-        private void orderPanel(object sender, EventArgs e)
-        {
-            groupBox2.Controls.Clear();
-
-            var newLayout = new OrderLayout(); 
-
-            groupBox2.Controls.Add(newLayout);
-
-            return;
-        }
-
-        private void autoPanel(object sender, EventArgs e)
-        {
-            groupBox2.Controls.Clear();
-
-            var newLayout = new AutoLayout();
-
-            groupBox2.Controls.Add(newLayout);
-            
-            return;
-        }
-
-        private void providerPanel(object sender, EventArgs e)
-        {
-            groupBox2.Controls.Clear();
-
-            var newLayout = new ProviderLayout();
-
-            groupBox2.Controls.Add(newLayout);
-
-            return;
-        }
-
-        private void employeePanel(object sender, EventArgs e)
-        {
-            groupBox2.Controls.Clear();
-
-            var newLayout = new EmployeeLayout();
-
-            groupBox2.Controls.Add(newLayout);
-
-            return;
-        }
-
-        
 
 
     }
