@@ -24,9 +24,5 @@ public class ApplicationDbContext : DbContext
         optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     }
 
-
-
-
-
 }
 

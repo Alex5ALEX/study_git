@@ -13,19 +13,20 @@ namespace Auto_Rent.Views.ClientView;
 
 public partial class ClientEdit : UserControl
 {
-    public Guid _id { get; set; } = new Guid();
+    private Guid _id { get; set; }
     private ClientControl _mainController;
 
-    public ClientEdit(ClientControl _mainController)
+    public ClientEdit(ClientControl _mainController, Guid Id)
     {
         this._mainController = _mainController;
-
+        this._id = Id;
 
         InitializeComponent();
-        //InitializeData();
+        InitializeData();
 
 
         buttonEdit.Click += editClient;
+        buttonDelete.Click += deleteClient;
     }
 
 
@@ -35,6 +36,7 @@ public partial class ClientEdit : UserControl
 
         if (customer != null)
         {
+            richTextBoxId.Text = _id.ToString();
             textBoxName.Text = customer?.Name;
             textBoxSurname.Text = customer?.Surname;
             textBoxAge.Text = customer?.Age.ToString();
@@ -46,7 +48,41 @@ public partial class ClientEdit : UserControl
 
     private void editClient(object sender, EventArgs e)
     {
-        //_mainController
+        var customer = _mainController._context.Client.FirstOrDefault(c => c.Id == _id);
+
+        if (customer != null)
+        {
+            customer.Name = textBoxName.Text;
+            customer.Surname = textBoxSurname.Text;
+            if (int.TryParse(textBoxAge.Text, out int result))
+            {
+                customer.Age = result;
+            }
+            customer.Phone = textBoxPhone.Text; 
+            customer.Email = textBoxEmail.Text;
+            customer.Addres = textBoxAddres.Text;
+
+            _mainController._context.SaveChanges();
+            _mainController.InitializeData();
+
+        }
+
+    }
+
+
+    private void deleteClient(object sender, EventArgs e)
+    {
+        var customer = _mainController._context.Client.FirstOrDefault(c => c.Id == _id);
+
+        if (customer != null)
+        {
+            _mainController._context.Remove(customer);
+            _mainController._context.SaveChanges();
+            _mainController.InitializeData();
+
+            this.Visible = false;
+        }
+
 
     }
 }

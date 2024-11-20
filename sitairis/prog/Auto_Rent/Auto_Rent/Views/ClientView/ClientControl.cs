@@ -22,7 +22,7 @@ public partial class ClientControl : UserControl
     {
         _context = new ApplicationDbContext();
         _clientAdd = new ClientAdd(this);
-        _clientEdit = new ClientEdit(this);
+        //_clientEdit = new ClientEdit(this);
 
 
         InitializeComponent();
@@ -30,7 +30,6 @@ public partial class ClientControl : UserControl
 
         buttonAdd.Click += AddClient;
         buttonEdit.Click += EditClient;
-        dataGridClient.SelectionChanged += changeSelected;
     }
 
 
@@ -50,31 +49,22 @@ public partial class ClientControl : UserControl
 
     private void EditClient(object sender, EventArgs e)
     {
+
+        if (dataGridClient.CurrentRow == null)
+        {
+            return;
+        }
+
+        var selectedRow = dataGridClient.CurrentRow;
+
+
+        Guid Id = Guid.Parse(selectedRow.Cells["Id"].Value.ToString());
+
+        _clientEdit = new ClientEdit(this, Id);
+
         groupBox.Controls.Clear();
         groupBox.Controls.Add(_clientEdit);
     }
-
-
-
-    private void changeSelected(object sender, EventArgs e)
-    {
-        /*
-        if (dataGridClient.CurrentRow != null)
-        {
-            // Получаем выделенную строку
-            var selectedRow = dataGridClient.CurrentRow;
-
-            // Получаем данные из выделенной строки
-
-            string id = selectedRow.Cells["Id"].Value.ToString();
-            _clientEdit._id = Guid.Parse(id);
-            _clientEdit.InitializeData();
-
-            //MessageBox.Show($"Выделенная строка: ID = {id}, Name = {name}");
-        }
-        //_clientEdit._id*/
-    }
-
 
 
 }
