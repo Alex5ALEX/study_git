@@ -9,7 +9,7 @@ namespace Auto_Rent.Models;
 public class OrderEntity
 {
     //atributs
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     public DateTime Date { get; set; } = new DateTime();
 

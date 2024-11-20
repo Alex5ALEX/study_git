@@ -18,89 +18,63 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace Auto_Rent.Views
+
+using Auto_Rent.Data;
+namespace Auto_Rent.Views;
+
+public partial class MainForm : Form
 {
-    public partial class MainForm : Form
+    private ApplicationDbContext _context;
+
+    private AutoLayout _autoLayout;
+    private ClientControl _clientControl;
+    private EmployeeLayout _employeeLayout;
+    private OrderLayout _orderLayout;
+    private ProviderLayout _providerLayout;
+
+    public MainForm()
     {
-        public MainForm()
-        {
-            InitializeComponent();
+        _context = new ApplicationDbContext();
 
-            InitializePages();
+        InitializeComponent();
+        InitializePages();
 
+        this.FormClosing += new FormClosingEventHandler(CloseApplication);
+    }
 
-            this.FormClosing += new FormClosingEventHandler(CloseApplication);
-        }
-
-        private void InitializePages()
-        {
-            InitializePageAuto();
-            InitializePageClient();
-            InitializePageEmployee();
-            InitializePageOrder();
-            InitializePageProvider();
-        }
+    private void InitializePages()
+    {
+        _autoLayout = new AutoLayout();
+        _clientControl = new ClientControl();
+        _employeeLayout = new EmployeeLayout();
+        _orderLayout = new OrderLayout();
+        _providerLayout = new ProviderLayout();
 
 
-
-        private void InitializePageProvider()
-        {
-            tabPage5.Controls.Clear();
-
-            var newLayout = new ProviderLayout();
-
-            tabPage5.Controls.Add(newLayout);
-        }
-
-        private void InitializePageOrder()
-        {
-            tabPage4.Controls.Clear();
-
-            var newLayout = new OrderLayout();
-
-            tabPage4.Controls.Add(newLayout);
-        }
-
-        private void InitializePageEmployee()
-        {
-            tabPage3.Controls.Clear();
-
-            var newLayout = new EmployeeLayout();
-
-            tabPage3.Controls.Add(newLayout);
-        }
-
-        private void InitializePageClient()
-        {
-            tabPage2.Controls.Clear();
-
-            var newLayout = new ClientLayout();
-
-            tabPage2.Controls.Add(newLayout);
-        }
-
-        private void InitializePageAuto()
-        {
-            tabPage1.Controls.Clear();
-
-            var newLayout = new AutoLayout();
-
-            tabPage1.Controls.Add(newLayout);
-        }
-
-
-
-        private void CloseApplication(object sender, FormClosingEventArgs e) {
-
-            DialogResult result = MessageBox.Show("Вы уверены, что хотите закрыть приложение?", "Подтверждение", MessageBoxButtons.YesNo);
-
-            // Если пользователь выбрал "Нет", отменяем закрытие
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-
-        }
+        tabPageAuto.Controls.Add(_autoLayout);
+        tabPageClient.Controls.Add(_clientControl);
+        tabPageEmployee.Controls.Add(_employeeLayout);
+        tabPageOrder.Controls.Add(_orderLayout);
+        tabPageProvider.Controls.Add(_providerLayout);
 
     }
+
+
+
+
+
+    private void CloseApplication(object sender, FormClosingEventArgs e)
+    {
+        DialogResult result = MessageBox.Show("Вы уверены, что хотите закрыть приложение?", "Подтверждение", MessageBoxButtons.YesNo);
+
+        // Если пользователь выбрал "Нет", отменяем закрытие
+        if (result == DialogResult.No)
+        {
+            e.Cancel = true;
+        }
+
+        _context.SaveChanges();
+    }
+
+
 }

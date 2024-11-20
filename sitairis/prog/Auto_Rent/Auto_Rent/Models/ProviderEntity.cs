@@ -9,7 +9,7 @@ namespace Auto_Rent.Models;
 public class ProviderEntity
 {
     //atributs
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     public string CompanyName { get; set; } = string.Empty;
 
