@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Auto_Rent.Views.ClientView;
+﻿namespace Auto_Rent.Views.ClientView;
 
 public partial class ClientEdit : UserControl
 {
@@ -25,8 +14,9 @@ public partial class ClientEdit : UserControl
         InitializeData();
 
 
-        buttonEdit.Click += editClient;
-        buttonDelete.Click += deleteClient;
+        buttonEdit.Click += edit;
+        buttonDelete.Click += delete;
+        buttonBack.Click += back;
     }
 
 
@@ -46,7 +36,7 @@ public partial class ClientEdit : UserControl
         }
     }
 
-    private void editClient(object sender, EventArgs e)
+    private void edit(object sender, EventArgs e)
     {
         var customer = _mainController._context.Client.FirstOrDefault(c => c.Id == _id);
 
@@ -70,8 +60,17 @@ public partial class ClientEdit : UserControl
     }
 
 
-    private void deleteClient(object sender, EventArgs e)
+    private void delete(object sender, EventArgs e)
     {
+
+        DialogResult result = MessageBox.Show("Are you sure want ot delete?", "Yes", MessageBoxButtons.YesNo);
+
+        if (result == DialogResult.No)
+        {
+            return ;
+        }
+
+
         var customer = _mainController._context.Client.FirstOrDefault(c => c.Id == _id);
 
         if (customer != null)
@@ -82,7 +81,12 @@ public partial class ClientEdit : UserControl
 
             this.Visible = false;
         }
-
-
     }
+
+
+    private void back(object sender, EventArgs e)
+    {
+        this.Visible = false;
+    }
+
 }

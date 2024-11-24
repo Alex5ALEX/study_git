@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Auto_Rent.Data;
+using Auto_Rent.Views.ProviderView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,22 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+namespace Auto_Rent.Views.AutoView;
 
-using Auto_Rent.Data;
-namespace Auto_Rent.Views.ClientView;
-
-public partial class ClientControl : UserControl
+public partial class AutoControl : UserControl
 {
     public ApplicationDbContext _context;
-    private ClientAdd _clientAdd;
-    private ClientEdit _clientEdit;
+    private AutoAdd _autoAdd;
+    private AutoEdit _autoEdit;
 
-    public ClientControl()
+    public AutoControl()
     {
         _context = new ApplicationDbContext();
-        _clientAdd = new ClientAdd(this);
-        //_clientEdit = new ClientEdit(this);
-
+        _autoAdd = new AutoAdd(this);
 
         InitializeComponent();
         InitializeData();
@@ -36,16 +34,20 @@ public partial class ClientControl : UserControl
     public void InitializeData()
     {
         dataGrid.Controls.Clear();
-        var clients = _context.Client.ToList();
-        dataGrid.DataSource = clients;
+        var auto = _context.Auto.ToList();
+        dataGrid.DataSource = auto;
+        dataGrid.Columns["Price"].DefaultCellStyle.Format = "0.00";
+        dataGrid.Columns["Coast"].DefaultCellStyle.Format = "0.00";
+        dataGrid.Columns["Year"].DefaultCellStyle.Format = "yyyy";
+        dataGrid.Columns["Provider"].Visible = false;
     }
 
 
     private void Add(object sender, EventArgs e)
     {
         groupBox.Controls.Clear();
-        _clientAdd.visibility(true);
-        groupBox.Controls.Add(_clientAdd);
+        _autoAdd.visibility(true);
+        groupBox.Controls.Add(_autoAdd);
     }
 
     private void Edit(object sender, EventArgs e)
@@ -61,11 +63,9 @@ public partial class ClientControl : UserControl
 
         Guid Id = Guid.Parse(selectedRow.Cells["Id"].Value.ToString());
 
-        _clientEdit = new ClientEdit(this, Id);
+        _autoEdit = new AutoEdit(this, Id);
 
         groupBox.Controls.Clear();
-        groupBox.Controls.Add(_clientEdit);
+        groupBox.Controls.Add(_autoEdit);
     }
-
-
 }

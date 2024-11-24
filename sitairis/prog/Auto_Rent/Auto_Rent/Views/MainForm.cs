@@ -5,20 +5,6 @@ using Auto_Rent.Views.OrderView;
 using Auto_Rent.Views.ProviderView;
 
 
-
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-
-
 using Auto_Rent.Data;
 namespace Auto_Rent.Views;
 
@@ -26,11 +12,11 @@ public partial class MainForm : Form
 {
     private ApplicationDbContext _context;
 
-    private AutoLayout _autoLayout;
+    private AutoControl _autoControl;
     private ClientControl _clientControl;
-    private EmployeeLayout _employeeLayout;
-    private OrderLayout _orderLayout;
-    private ProviderLayout _providerLayout;
+    private EmployeeControl _employeeControl;
+    private OrderControl _orderControl;
+    private ProviderControl _providerControl;
 
     public MainForm()
     {
@@ -44,18 +30,18 @@ public partial class MainForm : Form
 
     private void InitializePages()
     {
-        _autoLayout = new AutoLayout();
+        _autoControl = new AutoControl();
         _clientControl = new ClientControl();
-        _employeeLayout = new EmployeeLayout();
-        _orderLayout = new OrderLayout();
-        _providerLayout = new ProviderLayout();
+        _employeeControl = new EmployeeControl();
+        _orderControl = new OrderControl();
+        _providerControl = new ProviderControl();
 
 
-        tabPageAuto.Controls.Add(_autoLayout);
+        tabPageAuto.Controls.Add(_autoControl);
         tabPageClient.Controls.Add(_clientControl);
-        tabPageEmployee.Controls.Add(_employeeLayout);
-        tabPageOrder.Controls.Add(_orderLayout);
-        tabPageProvider.Controls.Add(_providerLayout);
+        tabPageEmployee.Controls.Add(_employeeControl);
+        tabPageOrder.Controls.Add(_orderControl);
+        tabPageProvider.Controls.Add(_providerControl);
 
     }
 

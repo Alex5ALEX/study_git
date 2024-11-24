@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Auto_Rent.Data;
+using Auto_Rent.Views.EmployeeView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,22 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+namespace Auto_Rent.Views.ProviderView;
 
-using Auto_Rent.Data;
-namespace Auto_Rent.Views.ClientView;
-
-public partial class ClientControl : UserControl
+public partial class ProviderControl : UserControl
 {
     public ApplicationDbContext _context;
-    private ClientAdd _clientAdd;
-    private ClientEdit _clientEdit;
+    private ProviderAdd _providerAdd;
+    private ProviderEdit _providerEdit;
 
-    public ClientControl()
+    public ProviderControl()
     {
         _context = new ApplicationDbContext();
-        _clientAdd = new ClientAdd(this);
-        //_clientEdit = new ClientEdit(this);
-
+        _providerAdd = new ProviderAdd(this);
 
         InitializeComponent();
         InitializeData();
@@ -36,16 +34,16 @@ public partial class ClientControl : UserControl
     public void InitializeData()
     {
         dataGrid.Controls.Clear();
-        var clients = _context.Client.ToList();
-        dataGrid.DataSource = clients;
+        var providers = _context.Provider.ToList();
+        dataGrid.DataSource = providers;
     }
 
 
     private void Add(object sender, EventArgs e)
     {
         groupBox.Controls.Clear();
-        _clientAdd.visibility(true);
-        groupBox.Controls.Add(_clientAdd);
+        _providerAdd.visibility(true);
+        groupBox.Controls.Add(_providerAdd);
     }
 
     private void Edit(object sender, EventArgs e)
@@ -61,11 +59,9 @@ public partial class ClientControl : UserControl
 
         Guid Id = Guid.Parse(selectedRow.Cells["Id"].Value.ToString());
 
-        _clientEdit = new ClientEdit(this, Id);
+        _providerEdit = new ProviderEdit(this, Id);
 
         groupBox.Controls.Clear();
-        groupBox.Controls.Add(_clientEdit);
+        groupBox.Controls.Add(_providerEdit);
     }
-
-
 }

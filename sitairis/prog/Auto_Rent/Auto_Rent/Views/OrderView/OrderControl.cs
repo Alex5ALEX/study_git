@@ -1,5 +1,5 @@
 ﻿using Auto_Rent.Data;
-using Auto_Rent.Views.ClientView;
+using Auto_Rent.Views.AutoView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,20 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Auto_Rent.Views.EmployeeView;
+namespace Auto_Rent.Views.OrderView;
 
-public partial class EmployeeControl : UserControl
+public partial class OrderControl : UserControl
 {
     public ApplicationDbContext _context;
-    private EmployeeAdd _employeeAdd;
-    private EmployeeEdit _employeeEdit;
+    private OrderAdd _orderAdd;
+    private OrderEdit _orderEdit;
 
-    public EmployeeControl()
+    public OrderControl()
     {
         _context = new ApplicationDbContext();
-        _employeeAdd = new EmployeeAdd(this);
-        //_clientEdit = new ClientEdit(this);
-
+        _orderAdd = new OrderAdd(this);
 
         InitializeComponent();
         InitializeData();
@@ -36,16 +34,22 @@ public partial class EmployeeControl : UserControl
     public void InitializeData()
     {
         dataGrid.Controls.Clear();
-        var employers = _context.Employee.ToList();
-        dataGrid.DataSource = employers;
+        var order = _context.Order.ToList();
+        dataGrid.DataSource = order;
+        dataGrid.Columns["Date"].DefaultCellStyle.Format = "dd-MM-yyyy";
+        dataGrid.Columns["RentalPeriod"].DefaultCellStyle.Format = "dd-MM-yyyy";
+        dataGrid.Columns["StartDeposit"].DefaultCellStyle.Format = "0.00";
+        dataGrid.Columns["Auto"].Visible = false;
+        dataGrid.Columns["Client"].Visible = false;
+        dataGrid.Columns["Employee"].Visible = false;
     }
 
 
     private void Add(object sender, EventArgs e)
     {
         groupBox.Controls.Clear();
-        _employeeAdd.visibility(true);
-        groupBox.Controls.Add(_employeeAdd);
+        _orderAdd.visibility(true);
+        groupBox.Controls.Add(_orderAdd);
     }
 
     private void Edit(object sender, EventArgs e)
@@ -61,10 +65,9 @@ public partial class EmployeeControl : UserControl
 
         Guid Id = Guid.Parse(selectedRow.Cells["Id"].Value.ToString());
 
-        _employeeEdit = new EmployeeEdit(this, Id);
+        _orderEdit = new OrderEdit(this, Id);
 
         groupBox.Controls.Clear();
-        groupBox.Controls.Add(_employeeEdit);
+        groupBox.Controls.Add(_orderEdit);
     }
-
 }

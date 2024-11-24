@@ -1,22 +1,94 @@
-﻿using System;
+﻿using Auto_Rent.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Auto_Rent.Views.EmployeeView
+namespace Auto_Rent.Views.EmployeeView;
+
+public partial class EmployeeAdd : UserControl
 {
-    public partial class EmployeeAdd : UserControl
+
+    private EmployeeControl _mainController;
+
+    public EmployeeAdd(EmployeeControl _mainController)
     {
-        public EmployeeAdd()
+        this._mainController = _mainController;
+
+        InitializeComponent();
+
+        buttonAdd.Click += add;
+        buttonBack.Click += back;
+    }
+
+
+    private void add(object senser, EventArgs e)
+    {
+
+
+        if (string.IsNullOrWhiteSpace(textBoxName.Text) ||
+        string.IsNullOrWhiteSpace(textBoxSurname.Text) ||
+        string.IsNullOrWhiteSpace(textBoxJobtitle.Text) ||
+        string.IsNullOrWhiteSpace(textBoxAge.Text) ||
+        string.IsNullOrWhiteSpace(textBoxPhone.Text) ||
+        string.IsNullOrWhiteSpace(textBoxEmail.Text) ||
+        string.IsNullOrWhiteSpace(textBoxAddres.Text))
         {
-            InitializeComponent();
+            MessageBox.Show("Пожалуйста, заполните все поля.");
+            return;
         }
 
-       
+
+        int age = 0;
+
+        if (!int.TryParse(textBoxAge.Text, out age))
+        {
+            MessageBox.Show("Возрост введен не верно!");
+            return;
+        }
+
+        var employee = new EmployeeEntity()
+        {
+            Name = textBoxName.Text,
+            Surname = textBoxSurname.Text,
+            JobTitle = textBoxJobtitle.Text,
+            Age = age,
+            Phone = textBoxPhone.Text,
+            Email = textBoxEmail.Text,
+            Addres = textBoxAddres.Text
+        };
+
+        _mainController._context.Employee.Add(employee);
+        _mainController._context.SaveChanges();
+
+        _mainController.InitializeData();
+
+        textBoxName.Text = string.Empty;
+        textBoxSurname.Text = string.Empty;
+        textBoxJobtitle.Text = string.Empty;
+        textBoxAge.Text = string.Empty;
+        textBoxPhone.Text = string.Empty;
+        textBoxEmail.Text = string.Empty;
+        textBoxAddres.Text = string.Empty;
+
+    }
+
+    public void visibility(bool temp)
+    {
+        if (temp) { this.Visible = true; }
+        else { this.Visible = false; }
+    }
+
+    private void back(object senser, EventArgs e)
+    {
+        visibility(false);
     }
 }
