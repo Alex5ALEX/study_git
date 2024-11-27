@@ -26,6 +26,7 @@
             tabPageEmployee = new TabPage();
             tabPageOrder = new TabPage();
             tabPageProvider = new TabPage();
+            tabPageReport = new TabPage();
             tabPageMain.SuspendLayout();
             SuspendLayout();
             // 
@@ -36,6 +37,8 @@
             tabPageMain.Controls.Add(tabPageEmployee);
             tabPageMain.Controls.Add(tabPageOrder);
             tabPageMain.Controls.Add(tabPageProvider);
+            tabPageMain.Controls.Add(tabPageReport);
+            tabPageMain.Font = new Font("Segoe UI", 10F);
             tabPageMain.Location = new Point(0, 0);
             tabPageMain.Margin = new Padding(3, 2, 3, 2);
             tabPageMain.Name = "tabPageMain";
@@ -45,58 +48,68 @@
             // 
             // tabPageAuto
             // 
-            tabPageAuto.Location = new Point(4, 24);
+            tabPageAuto.Location = new Point(4, 26);
             tabPageAuto.Margin = new Padding(3, 2, 3, 2);
             tabPageAuto.Name = "tabPageAuto";
             tabPageAuto.Padding = new Padding(3, 2, 3, 2);
-            tabPageAuto.Size = new Size(1257, 652);
+            tabPageAuto.Size = new Size(1257, 650);
             tabPageAuto.TabIndex = 0;
             tabPageAuto.Text = "Auto";
             tabPageAuto.UseVisualStyleBackColor = true;
             // 
             // tabPageClient
             // 
-            tabPageClient.Location = new Point(4, 24);
+            tabPageClient.Location = new Point(4, 26);
             tabPageClient.Margin = new Padding(3, 2, 3, 2);
             tabPageClient.Name = "tabPageClient";
             tabPageClient.Padding = new Padding(3, 2, 3, 2);
-            tabPageClient.Size = new Size(1257, 652);
+            tabPageClient.Size = new Size(1257, 650);
             tabPageClient.TabIndex = 1;
             tabPageClient.Text = "Client";
             tabPageClient.UseVisualStyleBackColor = true;
             // 
             // tabPageEmployee
             // 
-            tabPageEmployee.Location = new Point(4, 24);
+            tabPageEmployee.Location = new Point(4, 26);
             tabPageEmployee.Margin = new Padding(3, 2, 3, 2);
             tabPageEmployee.Name = "tabPageEmployee";
             tabPageEmployee.Padding = new Padding(3, 2, 3, 2);
-            tabPageEmployee.Size = new Size(1257, 652);
+            tabPageEmployee.Size = new Size(1257, 650);
             tabPageEmployee.TabIndex = 1;
             tabPageEmployee.Text = "Employee";
             tabPageEmployee.UseVisualStyleBackColor = true;
             // 
             // tabPageOrder
             // 
-            tabPageOrder.Location = new Point(4, 24);
+            tabPageOrder.Location = new Point(4, 26);
             tabPageOrder.Margin = new Padding(3, 2, 3, 2);
             tabPageOrder.Name = "tabPageOrder";
             tabPageOrder.Padding = new Padding(3, 2, 3, 2);
-            tabPageOrder.Size = new Size(1257, 652);
+            tabPageOrder.Size = new Size(1257, 650);
             tabPageOrder.TabIndex = 1;
             tabPageOrder.Text = "Order";
             tabPageOrder.UseVisualStyleBackColor = true;
             // 
             // tabPageProvider
             // 
-            tabPageProvider.Location = new Point(4, 24);
+            tabPageProvider.Location = new Point(4, 26);
             tabPageProvider.Margin = new Padding(3, 2, 3, 2);
             tabPageProvider.Name = "tabPageProvider";
             tabPageProvider.Padding = new Padding(3, 2, 3, 2);
-            tabPageProvider.Size = new Size(1257, 652);
+            tabPageProvider.Size = new Size(1257, 650);
             tabPageProvider.TabIndex = 1;
             tabPageProvider.Text = "Provider";
             tabPageProvider.UseVisualStyleBackColor = true;
+            // 
+            // tabPageReport
+            // 
+            tabPageReport.Location = new Point(4, 26);
+            tabPageReport.Name = "tabPageReport";
+            tabPageReport.Padding = new Padding(3);
+            tabPageReport.Size = new Size(1257, 650);
+            tabPageReport.TabIndex = 2;
+            tabPageReport.Text = "Report";
+            tabPageReport.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -119,6 +132,6 @@
         private TabPage tabPageEmployee;
         private TabPage tabPageOrder;
         private TabPage tabPageProvider;
-
+        private TabPage tabPageReport;
     }
 }

@@ -6,6 +6,7 @@ using Auto_Rent.Views.ProviderView;
 
 
 using Auto_Rent.Data;
+using Auto_Rent.Views.Report;
 namespace Auto_Rent.Views;
 
 public partial class MainForm : Form
@@ -17,6 +18,7 @@ public partial class MainForm : Form
     private EmployeeControl _employeeControl;
     private OrderControl _orderControl;
     private ProviderControl _providerControl;
+    private ReportControl _reportControl;
 
     public MainForm()
     {
@@ -35,6 +37,7 @@ public partial class MainForm : Form
         _employeeControl = new EmployeeControl();
         _orderControl = new OrderControl();
         _providerControl = new ProviderControl();
+        _reportControl = new ReportControl();
 
 
         tabPageAuto.Controls.Add(_autoControl);
@@ -42,7 +45,7 @@ public partial class MainForm : Form
         tabPageEmployee.Controls.Add(_employeeControl);
         tabPageOrder.Controls.Add(_orderControl);
         tabPageProvider.Controls.Add(_providerControl);
-
+        tabPageReport.Controls.Add(_reportControl);
     }
 
 

@@ -40,9 +40,9 @@ public partial class OrderEdit : UserControl
         if (order != null)
         {
             richTextBoxId.Text = order.Id.ToString();
-            richTextBoxIdAuto.Text = order.Id.ToString();
-            richTextBoxIdClient.Text = order.Id.ToString();
-            richTextBoxIdEmployee.Text = order.Id.ToString();
+            richTextBoxIdAuto.Text = order.Id_Auto.ToString();
+            richTextBoxIdClient.Text = order.Id_Client.ToString();
+            richTextBoxIdEmployee.Text = order.Id_Employee.ToString();
 
             
             textBoxDeposit.Text = ((double)order.StartDeposit).ToString();
